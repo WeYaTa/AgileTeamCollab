@@ -21,6 +21,7 @@ namespace AgileTeamCollabLibrary.Tests
             Assert.AreEqual(1, test.Insert("P001", "Melon", 5000, (decimal)5.5));
         }
 
+        //Test tambah barang dengan harga minus
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestInsertHargaMinus()
@@ -28,6 +29,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Insert("P001", "Melon", -5000, (decimal)5.5);
         }
 
+        //Test tambah barang dengan pajak minus
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestInsertPajakMinus()
@@ -35,6 +37,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Insert("P002", "Melon", 5000, (decimal)-5.5);
         }
 
+        //Test tambah barang dengan pajak 0%
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestInsertPajakNol()
@@ -42,6 +45,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Insert("P003", "Melon", 5000, (decimal)0);
         }
 
+        //Test tambah barang dengan pajak > 100%
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestInsertPajakLebih100()
@@ -49,6 +53,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Insert("P004", "Melon", 5000, (decimal)101.5);
         }
 
+        //Test tambah barang tanpa kode
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestInsertKodeKosong()
@@ -56,6 +61,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Insert("", "Melon", 5000, (decimal)10);
         }
 
+        //Test tambah barang tanpa nama
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestInsertNamaKosong()
@@ -63,6 +69,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Insert("P005", "", 5000, (decimal)10);
         }
 
+        //Test tambah barang dengan kode lebih dari 4 karakter
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestInsertKodeLebih4Karakter()
@@ -70,6 +77,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Insert("P0011", "Melon", 5000, (decimal)10);
         }
 
+        //Test tambah barang dengan nama lebih dari 50 karakter
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestInsertNamaLebih50Karakter()
@@ -77,6 +85,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Insert("P006", "Melonnmmnmnmnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnskgjsheehsaufhukeasfhafwahfwaufgaufihawfl;DPAEIFIAIUKFAJsfjshegiusefnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn", 5000, (decimal)5.5);
         }
 
+        //Test tambah barang dengan kode yang sudah ada
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestInsertKodeSama()
@@ -94,6 +103,7 @@ namespace AgileTeamCollabLibrary.Tests
 
         }
 
+        //Test update barang dengan harga minus
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestUpdateHargaMinus()
@@ -102,6 +112,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Update("P001", "Semangka", -10000, (decimal)5.5);
         }
 
+        //Test update barang dengan pajak minus
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestUpdatePajakMinus()
@@ -110,6 +121,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Update("P001", "Semangka", 10000, (decimal)-5.5);
         }
 
+        //Test update barang dengan pajak 0%
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestUpdatePajakNol()
@@ -118,6 +130,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Update("P001", "Semangka", 10000, (decimal)0);
         }
 
+        //Test update barang dengan pajak melebihi 100%
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestUpdatePajakLebih100()
@@ -126,6 +139,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Update("P001", "Semangka", 10000, (decimal)105);
         }
 
+        //Test update barang dengan kode kosong
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestUpdateKodeKosong()
@@ -134,6 +148,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Update("", "Semangka", 10000, (decimal)5.5);
         }
 
+        //Test update barang dengan nama kosong
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestUpdateNamaKosong()
@@ -142,6 +157,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Update("P001", "", 10000, (decimal)5.5);
         }
 
+        //Test update barang dengan kode melebihi 4 karakter
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestUpdateKodeLebih4Karakter()
@@ -150,6 +166,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Update("P00123", "Semangka", 10000, (decimal)5.5);
         }
 
+        //Test update barang dengan nama melebihi 50 karakter
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestUpdateNamaLebih50Karakter()
@@ -170,6 +187,7 @@ namespace AgileTeamCollabLibrary.Tests
             Assert.AreEqual(c.Harga, test.GetDataBarangByKode("P001").Harga);
         }
 
+        //Test cari data barang dengan kode kosong
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestGetBarangByKodeKosong()
@@ -179,6 +197,7 @@ namespace AgileTeamCollabLibrary.Tests
             Assert.AreEqual(c.Kode, test.GetDataBarangByKode("").Kode);
         }
 
+        //Test cari data barang dengan kode melebihi 4 karakter
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestGetBarangByKodeLebih4Karakter()
@@ -197,6 +216,7 @@ namespace AgileTeamCollabLibrary.Tests
             Assert.AreEqual(test.Delete("P001"), 1);
         }
 
+        //Test delete barang dengan kode kosong
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestDeleteKodeKosong()
@@ -205,6 +225,7 @@ namespace AgileTeamCollabLibrary.Tests
             test.Delete("");
         }
 
+        //Test delete barang dengan kode melebihi 4 karakter
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TestDeleteKodeLebih4Karakter()
