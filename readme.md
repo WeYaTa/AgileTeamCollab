@@ -24,3 +24,7 @@ Fitur :
 6. User dapat menghapus list belanjaan yang sudah terdaftar. (Select row - delete)
 7. User dapat melihat seluruh list jualan dan list belanjaan. (GridView)
 8. User dapat melihat hasil akhir perbelanjaan. (klik Konfirmasi)
+
+Unit Test : ada pada Project dengan nama 'AgileTeamCollabLibraryTests'
+Yang di tes adalah class BarangDAOOffline (tidak ada koneksi ke database).
+Jumlah Tests : 25
